@@ -10,8 +10,14 @@
       "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
-          "inlineTemplate": true,
-          "inlineStyle": true
+          "spec": false,
+          "styleext": "scss"
+        },
+        "@schematics/angular:service": {
+          "spec": false
+        },
+        "@schematics/angular:module": {
+          "spec": false
         }
       },
       "architect": {
