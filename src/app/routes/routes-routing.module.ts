@@ -6,7 +6,17 @@ import { DefaultLayoutModule } from '../shared/layouts/default-layout/default-la
 const routes: Routes = [
   {
     path: '',
-    component: DefaultLayoutComponent
+    component: DefaultLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: 'src/app/routes/dashboard/dashboard.module#DashboardModule'
+      },
+      {
+        path: 'yarn',
+        loadChildren: 'src/app/routes/yarn/yarn.module#YarnModule'
+      },
+    ]
   }
 ];
 
