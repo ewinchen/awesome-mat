@@ -12,6 +12,23 @@
       <a mat-list-item href="#">Link 2</a>
       <a mat-list-item href="#">Link 3</a>
       <a mat-list-item [href]="false" [routerLink]="['/']" routerLinkActive="router-link-active">Dashboard</a>
+      <a mat-list-item [href]="false" [routerLink]="['/yarn/in']" routerLinkActive="router-link-active">Yarn</a>
+      <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+        <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
+          <button mat-icon-button disabled></button>
+          <a [href]="false" [routerLink]="['/', node.type]" routerLinkActive="router-link-active" >{{node.filename}}</a>
+        </mat-tree-node>
+      
+        <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+          <button mat-icon-button matTreeNodeToggle
+                  [attr.aria-label]="'toggle ' + node.filename">
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+          </button>
+          <a [href]="false" [routerLink]="['/', node.filename]" routerLinkActive="router-link-active" >{{node.filename}}</a>
+        </mat-tree-node>
+      </mat-tree>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -26,6 +43,7 @@
       </button>
       <span>Application Title</span>
     </mat-toolbar>
+    
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
