@@ -15,7 +15,11 @@ const routes: Routes = [
       },
       {
         path: 'dashboard',
-        component: DashboardComponent
+        loadChildren: './dashboard/dashboard.module#DashboardModule'
+      },
+      {
+        path: 'setting',
+        loadChildren: './setting/setting.module#SettingModule'
       }
     ]
   }
