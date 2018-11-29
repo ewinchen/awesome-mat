@@ -1,0 +1,8 @@
+<table mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="fSRNo">
+    <th mat-header-cell *matHeaderCellDef> FSR No. </th>
+    <td mat-cell *matCellDef="let fsrData"> {{fsrData.header.fSRNo}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="['fSRNo']; "></tr>
+  <tr mat-row (click)="onSelectFsr(rowData)" *matRowDef="let rowData; columns: ['fSRNo']"></tr>
+</table>

@@ -6,11 +6,12 @@
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item href="#" routerLink="/dashboard">Dashboard</a>
+      <a mat-list-item href="#" routerLink="/fsr-sales">Sales</a>
       <a mat-list-item href="#" routerLink="/setting">Setting</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary" style="z-index: 999; position: relative;">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -22,6 +23,8 @@
       <span>awesome-mat</span>
     </mat-toolbar>
     <!-- Add Content Here -->
-    <router-outlet></router-outlet>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

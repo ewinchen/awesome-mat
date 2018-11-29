@@ -15,3 +15,8 @@
   top: 0;
   z-index: 1;
 }
+
+.main-content {
+  margin: 6px;
+  height: calc(100vh - 76px)
+}
