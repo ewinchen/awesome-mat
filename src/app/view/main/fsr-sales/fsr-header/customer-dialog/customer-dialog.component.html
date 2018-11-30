@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>{{data.name}}</h1>
+<div mat-dialog-content fxLayout="column">
+  <mat-form-field class="example-full-width">
+    <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [(ngModel)]="data.customerCode" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.customerCode" placeholder="Customer Code">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.customerName" placeholder="Customer Name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.brand" placeholder="Brand">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.customerLabel" placeholder="Customer Label">
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>OK</button>
+</div>

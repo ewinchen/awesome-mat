@@ -38,6 +38,8 @@ import {
   MatTreeModule,
 } from '@angular/material';
 
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 @NgModule({
   imports: [
     CommonModule
@@ -78,6 +80,7 @@ import {
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
+    DragDropModule
   ],
   declarations: []
 })

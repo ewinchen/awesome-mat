@@ -1,9 +1,41 @@
-<div>
-  {{fsrHeader.fSRNo}}
+<div class="row" fxLayout="row">
+  <div fxFlex>
+    <mat-form-field floatLabel="always">
+      <input matInput [value]="fsrHeader.salesTeam" placeholder="Sales Team" readonly>
+    </mat-form-field>
+  </div>
+  <div fxFlex>
+    <mat-form-field floatLabel="always">
+      <input matInput [value]="fsrHeader.salesName" placeholder="Sales Name" readonly>
+    </mat-form-field>
+  </div>
+  <div fxFlex style="position: relative">
+    <mat-form-field floatLabel="always">
+      <input matInput [value]="fsrHeader.customerCode" placeholder="Customer Code" readonly>
+    </mat-form-field>
+    <button mat-icon-button color="primary" style="position: absolute; right: 0px; bottom: 17px;" (click)="openCustomerDialog()">
+      <mat-icon>launch</mat-icon>
+    </button>
+  </div>
+  <div fxFlex>
+    <mat-form-field floatLabel="always">
+      <input matInput [value]="fsrHeader.customerName" placeholder="Customer Name" readonly>
+    </mat-form-field>
+  </div>
+  <div fxFlex>
+    <mat-form-field floatLabel="always">
+      <input matInput [value]="fsrHeader.brand" placeholder="Brand" readonly>
+    </mat-form-field>
+  </div>
+  <div fxFlex>
+    <mat-form-field floatLabel="always">
+      <input matInput [(ngModel)]="fsrHeader.customerLabel" placeholder="Customer Label" readonly>
+    </mat-form-field>
+  </div>
 </div>
-<div>
-  {{fsrHeader.salesTeam}}
-</div>
-<div>
-  {{fsrHeader.salesName}}
-</div>
+
+<!-- <div fxFlex>
+  <mat-form-field floatLabel="always">
+    <input matInput [(ngModel)]="fsrHeader.fSRNo" placeholder="FSR No.">
+  </mat-form-field>
+</div> -->

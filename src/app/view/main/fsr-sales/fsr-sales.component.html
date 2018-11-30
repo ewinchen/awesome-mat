@@ -1,56 +1,21 @@
-<!-- <mat-grid-list cols="4" rowHeight="fit" style="height: 100%;">
-  <mat-grid-tile colspan="1">
-    <div class="mat-elevation-z8" style="height: 100%; overflow: auto">
-      <app-fsr-list [dataSource]="fsrList" (selectFsr)="onSelectFsr($event)"></app-fsr-list>
+<div fxLayout='row' style="height: 100%">
+  <div fxFlex="15">
+    <div style="height: 40px">
+      <button mat-raised-button color="primary" (click)="onRefreshList()">Refresh</button>
     </div>
-  </mat-grid-tile>
-  <mat-grid-tile colspan="3">
-    <app-fsr-header [fsrHeader]="fsrHeader"></app-fsr-header>
-  </mat-grid-tile>
-</mat-grid-list> -->
-
-
-<div fxLayout='row' style="height: 100%;">
-
-  <div fxFlex="20%">
-    <div class="mat-elevation-z8" style="height: 100%; overflow: auto">
+    <div class="mat-elevation-z8" style="height: calc(100% - 40px); overflow: auto">
       <app-fsr-list [dataSource]="fsrList" (selectFsr)="onSelectFsr($event)"></app-fsr-list>
     </div>
   </div>
 
-  <div fxFlex="80%" style="margin-left: 6px">
-    <div class="mat-elevation-z8" style="height: 100%; overflow: auto">
-      <app-fsr-header [fsrHeader]="fsrHeader"></app-fsr-header>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
+  <div fxFlex="85" style="padding-left: 6px">
+    <div style="height: 40px; text-align: right">
+      <button mat-raised-button color="primary" (click)="onRefreshList()">Save</button>
+    </div>
+    <div *ngIf="fsrData" class="mat-elevation-z8" style="height: calc(100% - 40px); overflow: auto;">
+      <div style="padding: 6px">
+        <app-fsr-header [fsrHeader]="fsrData.header"></app-fsr-header>
+      </div>
     </div>
   </div>
 
