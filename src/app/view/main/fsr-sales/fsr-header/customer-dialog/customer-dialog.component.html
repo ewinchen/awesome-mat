@@ -1,28 +1,57 @@
-<h1 mat-dialog-title>{{data.name}}</h1>
+<h1 mat-dialog-title>
+  <div fxLayout="row">
+    <div fxFlex="20">{{data.name}}</div>
+    <div fxFlex="80" fxFill style="text-align: right">
+      <button mat-icon-button (click)="onCancel()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+</h1>
 <div mat-dialog-content fxLayout="column">
-  <mat-form-field class="example-full-width">
-    <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [(ngModel)]="data.customerCode" [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-        {{option}}
+  <mat-form-field>
+    <input type="text" placeholder="Customer Code" matInput [formControl]="customerCodeControl" (onchange)="onCustomerCodeChanged($event)"
+      [matAutocomplete]="customerCode">
+    <mat-autocomplete #customerCode="matAutocomplete">
+      <mat-option *ngFor="let option of customerCodes" [value]="option.customerCd">
+        {{option.customerCd}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
+
   <mat-form-field>
-    <input matInput [(ngModel)]="data.customerCode" placeholder="Customer Code">
+    <input matInput [value]="data.customerName" placeholder="Customer Name" readonly>
   </mat-form-field>
+
   <mat-form-field>
-    <input matInput [(ngModel)]="data.customerName" placeholder="Customer Name">
+    <input type="text" placeholder="Brand" matInput [formControl]="brandControl" [matAutocomplete]="brand">
+    <mat-autocomplete #brand="matAutocomplete">
+      <mat-option *ngFor="let option of brands" [value]="option.name">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
   </mat-form-field>
+
   <mat-form-field>
-    <input matInput [(ngModel)]="data.brand" placeholder="Brand">
+    <input type="text" placeholder="Customer Label" matInput [formControl]="customerLabelControl" [matAutocomplete]="customerLabel">
+    <mat-autocomplete #customerLabel="matAutocomplete">
+      <mat-option *ngFor="let option of customerLabels" [value]="option.labelDesc">
+        {{option.labelDesc}}
+      </mat-option>
+    </mat-autocomplete>
   </mat-form-field>
+
   <mat-form-field>
-    <input matInput [(ngModel)]="data.customerLabel" placeholder="Customer Label">
+    <input type="text" placeholder="test" matInput [formControl]="testControl">
   </mat-form-field>
 </div>
 
 <div mat-dialog-actions>
   <button mat-button (click)="onCancel()">Cancel</button>
   <button mat-button [mat-dialog-close]="data" cdkFocusInitial>OK</button>
+  <div>
+    Current Value: {{testControl.value}}
+    <button mat-button (click)="onTest()">Test</button>
+    <button mat-button (click)="onSetTest()">TestSet</button>
+  </div>
 </div>
